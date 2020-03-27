@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인</title>
 </head>
 <body>
 
+<h2>로그인</h2>
 <form action="loginChecked.jsp"method="post">
 아이디:<input type = "text" name="id" id="id"><br>
 패스워드:<input type = "password" name="password" id="password"><br>

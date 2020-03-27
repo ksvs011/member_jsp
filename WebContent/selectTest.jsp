@@ -28,10 +28,10 @@ try{
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원정보 조회</title>
 </head>
 <body>
-	<h2>member 테이블의 레코드 표시</h2>
+	<h2>회원정보 조회</h2>
 	<table border = "1">
 	<tr>
 	<td width="100">회원번호</td>

@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원정보 수정</title>
 </head>
 <body>
-	<h2>member 테이블의 레코드 수정</h2>
+	<h2>회원정보 수정</h2>
 	
 	<form action="updateTestPro.jsp" method="post">
 		아이디:<input type = "text" name = "id" id="id" maxlength="50"><br>

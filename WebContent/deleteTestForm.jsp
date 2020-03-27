@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원정보 삭제</title>
 </head>
 <body>
-	<h2>member 테이블의 레코드 삭제</h2>
+	<h2>회원정보 삭제</h2>
 	
 	<form action="deleteTestPro.jsp" method="post">
 		아이디:<input type = "text" name = "id" id="id" maxlength="50"><br>
