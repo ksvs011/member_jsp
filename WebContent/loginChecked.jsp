@@ -17,7 +17,6 @@
 		DAOBase dao = new DAOBase();
 		Connection conn = dao.getConnection();
 		
-		
 		String loginId = request.getParameter("id");
 		String loginPassword = request.getParameter("password");
 		
@@ -29,11 +28,18 @@
 		
 		ResultSet rs = pstmt.executeQuery(); 
 		if(rs.next()){
+			if(loginId.equals("admin")){
+				%>
+				<button type="button" onclick="location.href='updateTestForm.jsp'">회원정보수정</button>
+				<button type="button" onclick="location.href='deleteTestForm.jsp'">회원정보삭제</button>
+				<button type="button" onclick="location.href='selectTest.jsp'">회원정보확인</button>
+				<%
+			}else{
 		%>
-				<p>로그인 성공</p>
+				<button type="button" onclick="location.href='updateTestForm.jsp'">회원정보수정</button>
 		<%
 		
-		
+			}
 		}else{
 		%>	
 			<p>id 또는 비밀번호 오류</p>

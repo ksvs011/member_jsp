@@ -1,3 +1,4 @@
+<%@page import="model.DAOBase"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
@@ -11,29 +12,26 @@
 request.setCharacterEncoding("UTF-8");
 
 String id= request.getParameter("id");
-String passwd= request.getParameter("password");
+String password= request.getParameter("password");
 String name= request.getParameter("name");
 
 Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
 
-String jdbc_driver = "oracle.jdbc.OracleDriver";
-String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
-
 try{
-	Class.forName(jdbc_driver);
-	conn = DriverManager.getConnection(db_url, "scott", "tiger");
+	DAOBase dao = new DAOBase();
+	conn = dao.getConnection();
 	
-	String sql = "select id,passwd from member where id= ?";
+	String sql = "select id,password from member where id= ?";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1,id);
 	rs = pstmt.executeQuery();
 	
 	if(rs.next()){
 		String rId=rs.getString("id");
-		String rPasswd=rs.getString("passwd");
-		if(id.equals(rId)&& passwd.equals(rPasswd)){
+		String rPassword=rs.getString("password");
+		if(id.equals(rId)&& password.equals(rPassword)){
 			sql="delete from member where id=?";
 			if(rs != null)
 				try{rs.close();} catch (SQLException e) {}
@@ -42,8 +40,8 @@ try{
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1,id);
 			pstmt.executeUpdate();
-		
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
